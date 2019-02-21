@@ -536,26 +536,39 @@ namespace Bing_search.UserControls
                 Refresh.IsEnabled = false;
             }
         }
-
-
-
-
-    }
-    public partial class WebControl : BingPage
-    {
-
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            FindName("SettingsPanel");
+            BingPage obj = new BingPage();
+            //FindName("SettingsPanel"); 
+            obj.AppBarButton_Click(sender, e);
         }
+
         private void MyFancyPanel_BackdropTapped(object sender, EventArgs e)
 
         {
-            var Setting = FindName("SettingsPanel") as DependencyObject;
-            UnloadObject(Setting);
-
-
+            //var Setting = FindName("SettingsPanel") as DependencyObject;
+            //UnloadObject(Setting);
+            BingPage obj = new BingPage();
+            obj.MyFancyPanel_BackdropTapped(sender, e);
         }
 
+
     }
+    /* public partial class WebControl : BingPage
+     {
+
+         private void AppBarButton_Click(object sender, RoutedEventArgs e)
+         {
+             FindName("SettingsPanel");
+         }
+         private void MyFancyPanel_BackdropTapped(object sender, EventArgs e)
+
+         {
+             var Setting = FindName("SettingsPanel") as DependencyObject;
+             UnloadObject(Setting);
+
+
+         }
+
+     }*/
 }

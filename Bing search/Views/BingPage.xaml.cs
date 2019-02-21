@@ -19,7 +19,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Bing_search.Views
 {
-    public sealed partial class BingPage : Page, INotifyPropertyChanged
+    public partial class BingPage : Page, INotifyPropertyChanged
     {
         public static string Args = "https://www.bing.com/";
         private TabView _tabs;
@@ -29,9 +29,9 @@ namespace Bing_search.Views
         {
             hex = hex.Replace("#", string.Empty);
             byte a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
-           // byte r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));
-           // byte g = (byte)(Convert.ToUInt32(hex.Substring(4, 2), 16));
-           // byte b = (byte)(Convert.ToUInt32(hex.Substring(6, 2), 16));
+            // byte r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));
+            // byte g = (byte)(Convert.ToUInt32(hex.Substring(4, 2), 16));
+            // byte b = (byte)(Convert.ToUInt32(hex.Substring(6, 2), 16));
             SolidColorBrush myBrush = new SolidColorBrush(Windows.UI.Color.FromArgb(a, 12, 132, 132));
             return myBrush;
         }
@@ -116,7 +116,7 @@ namespace Bing_search.Views
             InitializeComponent();
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
-          Container.Height = coreTitleBar.Height;
+            Container.Height = coreTitleBar.Height;
             Window.Current.SetTitleBar(Container);
         }
 
@@ -124,28 +124,28 @@ namespace Bing_search.Views
 
         {
 
-          /*  _tabs = control.FindChildByName("Tabs") as TabView;
+            /*  _tabs = control.FindChildByName("Tabs") as TabView;
 
-            if (_tabs != null)
+              if (_tabs != null)
 
-            {
+              {
 
-                _tabs.TabDraggedOutside += Tabs_TabDraggedOutside;
+                  _tabs.TabDraggedOutside += Tabs_TabDraggedOutside;
 
-              //  _tabs.TabClosing += Tabs_TabClosing;
+                //  _tabs.TabClosing += Tabs_TabClosing;
 
-            }
-
-
+              }
 
 
-            if (control.FindDescendantByName("AddTabButtonUpper") is Button btn)
 
-            {
 
-                btn.Click += AddUpperTabClick;
+              if (control.FindDescendantByName("AddTabButtonUpper") is Button btn)
 
-            }*/
+              {
+
+                  btn.Click += AddUpperTabClick;
+
+              }*/
 
         }
         private void Tabs_TabDraggedOutside(object sender, TabDraggedOutsideEventArgs e)
@@ -170,7 +170,7 @@ namespace Bing_search.Views
 
 
 
-           //TabViewNotification.Show("Tore Tab '" + str + "' Outside of TabView.", 2000);
+            //TabViewNotification.Show("Tore Tab '" + str + "' Outside of TabView.", 2000);
 
         }
         private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
@@ -238,7 +238,7 @@ namespace Bing_search.Views
         private void AddUpperTabClick(object sender, RoutedEventArgs e)
 
         {
-            
+
             string hex = ("0C");
             byte a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
             var fill = GetSolidColorBrush("#0C8484").Color;
@@ -424,21 +424,21 @@ namespace Bing_search.Views
             {
 
                 Header = "Search " + tabnumber++,
-               Content = F,
+                Content = F,
                 Icon = new SymbolIcon(Symbol.Find),
                 Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(a, 12, 132, 132)),
-               
-               
-                
 
 
 
-                   
+
+
+
+
 
 
 
             });
-       
+
 
 
 
@@ -460,10 +460,10 @@ namespace Bing_search.Views
 
         private void AutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-           
+
             FindName("webView");
 
-                //this.Frame.Navigate(typeof(SearchPage));
+            //this.Frame.Navigate(typeof(SearchPage));
             try
             {
                 webView.Source = new Uri(args.QueryText);
@@ -481,8 +481,8 @@ namespace Bing_search.Views
             }
             catch
             {
-               try
-            {
+                try
+                {
 
                     webView.Source = new Uri("http://" + args.QueryText);
                     IsLoading = true;
@@ -498,36 +498,36 @@ namespace Bing_search.Views
                     FindName("Fullscreen");
 
                 }
-                  catch
+                catch
                 {
-                
-                
-                  
-           
-                        // Use args.QueryText to determine what to do.
-                        //this.Frame.Navigate(typeof(SearchPage));
-                        Uri Args = new Uri("https://www.bing.com/search?q=" + args.QueryText);
-                        webView.Source = new Uri(Args.ToString());
-                        IsLoading = true;
-                        FindName("Re");
-                        Refresh.IsEnabled = true;
-                        Back.IsEnabled = true;
-                        FindName("CopyUrl");
-                        FindName("DefaultBrowser");
-                        FindName("Favorites");
-                        FindName("Fullscreen");
-                    
+
+
+
+
                     // Use args.QueryText to determine what to do.
-                 
+                    //this.Frame.Navigate(typeof(SearchPage));
+                    Uri Args = new Uri("https://www.bing.com/search?q=" + args.QueryText);
+                    webView.Source = new Uri(Args.ToString());
+                    IsLoading = true;
+                    FindName("Re");
+                    Refresh.IsEnabled = true;
+                    Back.IsEnabled = true;
+                    FindName("CopyUrl");
+                    FindName("DefaultBrowser");
+                    FindName("Favorites");
+                    FindName("Fullscreen");
+
+                    // Use args.QueryText to determine what to do.
+
                 }
             }
 
         }
-    
 
-    private void OnNewWindowRequested(WebView sender, WebViewNewWindowRequestedEventArgs e)
+
+        private void OnNewWindowRequested(WebView sender, WebViewNewWindowRequestedEventArgs e)
         {
-            
+
             SearchBox.Text = e.Uri.ToString();
             WebView web = sender;
             web.Navigate(e.Uri);
@@ -717,32 +717,32 @@ namespace Bing_search.Views
 
             bool succeeded = false;
 
-                DataPackage requestData = request.Data;
+            DataPackage requestData = request.Data;
 
-                requestData.Properties.Title = "Shared Link";
+            requestData.Properties.Title = "Shared Link";
 
-                requestData.Properties.Description = "Check out this link"; // The description is optional.
+            requestData.Properties.Description = "Check out this link"; // The description is optional.
 
-                requestData.Properties.ContentSourceApplicationLink = ApplicationLink;
+            requestData.Properties.ContentSourceApplicationLink = ApplicationLink;
             requestData.SetWebLink(webView.Source);
             succeeded = true;
 
 
-                // It's recommended to use both SetBitmap and SetStorageItems for sharing a single image
+            // It's recommended to use both SetBitmap and SetStorageItems for sharing a single image
 
-                // since the target app may only support one or the other.
+            // since the target app may only support one or the other.
 
 
 
-                
-        
-           /* else
 
-            {
 
-                request.FailWithDisplayText("Something went wrong please try again.");
+            /* else
 
-            }*/
+             {
+
+                 request.FailWithDisplayText("Something went wrong please try again.");
+
+             }*/
 
             return succeeded;
 
@@ -829,9 +829,9 @@ namespace Bing_search.Views
 
         }
         // Assume webView is defined in XAML
-       // webView.ContainsFullScreenElementChanged += webView_ContainsFullScreenElementChanged;
+        // webView.ContainsFullScreenElementChanged += webView_ContainsFullScreenElementChanged;
 
-private void webView_ContainsFullScreenElementChanged(WebView sender, object args)
+        private void webView_ContainsFullScreenElementChanged(WebView sender, object args)
         {
             var applicationView = ApplicationView.GetForCurrentView();
 
@@ -851,7 +851,7 @@ private void webView_ContainsFullScreenElementChanged(WebView sender, object arg
         {
 
             // If the user clicks the share button, invoke the share flow programatically.
-           // Shareconfirm.Hide();
+            // Shareconfirm.Hide();
             DataTransferManager.ShowShareUI();
 
         }
@@ -890,10 +890,10 @@ private void webView_ContainsFullScreenElementChanged(WebView sender, object arg
 
         private void Expander_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            
-                FindName("G");
+
+            FindName("G");
         }
-     
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var fill = GetSolidColorBrush("#0C8484").Color;
@@ -1080,7 +1080,7 @@ private void webView_ContainsFullScreenElementChanged(WebView sender, object arg
             };
             reward.Content = legal;
         }
-        private void MyFancyPanel_BackdropTapped(object sender, EventArgs e)
+        public void MyFancyPanel_BackdropTapped(object sender, EventArgs e)
 
         {
 
@@ -1088,7 +1088,7 @@ private void webView_ContainsFullScreenElementChanged(WebView sender, object arg
 
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        public void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             FindName("SettingsPanel");
         }
@@ -1097,7 +1097,7 @@ private void webView_ContainsFullScreenElementChanged(WebView sender, object arg
 
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-           // throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+            // throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
         // List of ValueTuple holding the Navigation Tag and the relative Navigation Page
@@ -1113,29 +1113,29 @@ private void webView_ContainsFullScreenElementChanged(WebView sender, object arg
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
             // You can also add items in code.
-          /*  NavView.MenuItems.Add(new NavigationViewItemSeparator());
-            NavView.MenuItems.Add(new NavigationViewItem
-            {
-                Content = "My content",
-                Icon = new SymbolIcon((Symbol)0xF1AD),
-                Tag = "content"
-            });
-            _pages.Add(("content", typeof(SettingsPage)));
+            /*  NavView.MenuItems.Add(new NavigationViewItemSeparator());
+              NavView.MenuItems.Add(new NavigationViewItem
+              {
+                  Content = "My content",
+                  Icon = new SymbolIcon((Symbol)0xF1AD),
+                  Tag = "content"
+              });
+              _pages.Add(("content", typeof(SettingsPage)));
 
-            // Add handler for ContentFrame navigation.
-            ContentFrame.Navigated += On_Navigated;
+              // Add handler for ContentFrame navigation.
+              ContentFrame.Navigated += On_Navigated;
 
-            // NavView doesn't load any page by default, so load home page.
-            NavView.SelectedItem = NavView.MenuItems[0];
-            // If navigation occurs on SelectionChanged, this isn't needed.
-            // Because we use ItemInvoked to navigate, we need to call Navigate
-            // here to load the home page.
-            NavView_Navigate("home", new EntranceNavigationTransitionInfo());
+              // NavView doesn't load any page by default, so load home page.
+              NavView.SelectedItem = NavView.MenuItems[0];
+              // If navigation occurs on SelectionChanged, this isn't needed.
+              // Because we use ItemInvoked to navigate, we need to call Navigate
+              // here to load the home page.
+              NavView_Navigate("home", new EntranceNavigationTransitionInfo());
 
-            // Add keyboard accelerators for backwards navigation.
-            var goBack = new KeyboardAccelerator { Key = VirtualKey.GoBack };
-            goBack.Invoked += BackInvoked;
-            this.KeyboardAccelerators.Add(goBack);*/
+              // Add keyboard accelerators for backwards navigation.
+              var goBack = new KeyboardAccelerator { Key = VirtualKey.GoBack };
+              goBack.Invoked += BackInvoked;
+              this.KeyboardAccelerators.Add(goBack);*/
 
             // ALT routes here
             var altLeft = new KeyboardAccelerator
@@ -1161,11 +1161,11 @@ private void webView_ContainsFullScreenElementChanged(WebView sender, object arg
             }
         }
 
-/* NavView_SelectionChanged is not used in this example, but is shown for completeness.
-     You will typically handle either ItemInvoked or SelectionChanged to perform navigation,
-     but not both.*/
-private void NavView_SelectionChanged(NavigationView sender,
-                                      NavigationViewSelectionChangedEventArgs args)
+        /* NavView_SelectionChanged is not used in this example, but is shown for completeness.
+             You will typically handle either ItemInvoked or SelectionChanged to perform navigation,
+             but not both.*/
+        private void NavView_SelectionChanged(NavigationView sender,
+                                              NavigationViewSelectionChangedEventArgs args)
         {
             if (args.IsSettingsSelected == true)
             {
@@ -1254,12 +1254,12 @@ private void NavView_SelectionChanged(NavigationView sender,
 
         private void webView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
         {
-          IsLoading = true;
+            IsLoading = true;
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            if(webView.CanGoBack == true)
+            if (webView.CanGoBack == true)
             {
                 Forward.IsEnabled = true;
                 webView.GoBack();
@@ -1313,17 +1313,19 @@ private void NavView_SelectionChanged(NavigationView sender,
         {
             FindName("MainSearch");
         }
-        string blob = "www.google.com";
-       /* private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
-        {
-            blob = webView.Source.ToString();
-            UnloadObject(webView);
-        }
-        private void AppBarButton_Click_3(object sender, RoutedEventArgs e)
-        {
 
-            FindName("webView");
-            webView.Source = new Uri(blob);
-        }*/
+        string blob = "www.google.com";
+        /* private void AppBarButton_Click_2(object sender, RoutedEventArgs e)
+         {
+             blob = webView.Source.ToString();
+             UnloadObject(webView);
+         }
+         private void AppBarButton_Click_3(object sender, RoutedEventArgs e)
+         {
+
+             FindName("webView");
+             webView.Source = new Uri(blob);
+         }*/
     }
+    
 }
