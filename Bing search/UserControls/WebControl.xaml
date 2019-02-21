@@ -54,7 +54,7 @@
                     <AppBarButton x:Name="Re" x:Load="False" Icon="Refresh" Label="Refresh" Click="Refresh_Click"></AppBarButton>
                     <AppBarSeparator/>
                     <AppBarButton Icon="Bookmarks" Label="Save as bookmark"></AppBarButton>
-                    <AppBarButton Icon="Share" Label="Share" Click="ShareItem_Click"></AppBarButton>
+                    <AppBarButton Icon="Share" Label="Share" Click="ShareItem_Click1"></AppBarButton>
                     <AppBarButton Icon="Comment" Label="Feedback" Click="Feedback_Click"></AppBarButton>
                     <AppBarButton Icon="Setting" Label="Settings" Click="AppBarButton_Click"></AppBarButton>
                     <AppBarSeparator/>

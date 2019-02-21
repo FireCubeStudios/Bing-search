@@ -262,9 +262,9 @@ namespace Bing_search.UserControls
 
         }
 
-        private void ShareItem_Click(object sender, RoutedEventArgs e)
+        private void ShareItem_Click1(object sender, RoutedEventArgs e)
         {
-            ShowUIButton_Click(sender, e);
+            ShowUIButton_Click1(sender, e);
         }
         private DataTransferManager dataTransferManager;
 
@@ -442,7 +442,7 @@ namespace Bing_search.UserControls
         }
 
 
-        private void ShowUIButton_Click(object sender, RoutedEventArgs e)
+        private void ShowUIButton_Click1(object sender, RoutedEventArgs e)
 
         {
 
@@ -539,7 +539,6 @@ namespace Bing_search.UserControls
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             BingPage obj = new BingPage();
-            //FindName("SettingsPanel"); 
             obj.AppBarButton_Click(sender, e);
         }
 

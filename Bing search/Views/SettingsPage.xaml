@@ -11,7 +11,7 @@
     <Page.Resources>
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="ElementTheme" />
     </Page.Resources>
-    <Grid Margin="{StaticResource MediumLeftRightMargin}" x:Load="False" x:Name="gridSettings">
+    <Grid Margin="{StaticResource MediumLeftRightMargin}" x:Name="gridSettings">
         <Grid.RowDefinitions>
             <RowDefinition Height="48"/>
             <RowDefinition Height="*"/>
@@ -41,7 +41,7 @@
                         FontSize="15">
                         <RadioButton.CommandParameter>
                             <xaml:ElementTheme>Light</xaml:ElementTheme>
-                        </RadioButton.CommandParameter> 
+                        </RadioButton.CommandParameter>
                     </RadioButton>
                     <RadioButton 
                         x:Uid="Settings_Theme_Dark" 
