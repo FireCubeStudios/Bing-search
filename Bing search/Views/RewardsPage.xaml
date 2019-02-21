@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="Bing_search.Views.RewardsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Bing_search.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Pivot>
+            <PivotItem Header="Quick Menu"></PivotItem>
+            <PivotItem Header="Earn">
+                <WebView Source="https://account.microsoft.com/rewards/" NewWindowRequested="OnNewWindowRequested"/>
+            </PivotItem>
+            <PivotItem Header="Redeem">
+                <WebView x:Name="webRewards" Source="https://account.microsoft.com/rewards/redeem/" NewWindowRequested="OnNewWindowRequested"/>
+            </PivotItem>
+            <PivotItem Header="Community">
+                <WebView Source="https://account.microsoft.com/rewards/community/" NewWindowRequested="OnNewWindowRequested"/>
+            </PivotItem>
+            <PivotItem Header="Status">
+                <WebView Source="https://account.microsoft.com/rewards/status/" NewWindowRequested="OnNewWindowRequested"/>
+            </PivotItem>
+            <PivotItem Header="Winners">
+                <WebView Source="https://account.microsoft.com/rewards/status/" NewWindowRequested="OnNewWindowRequested"/>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>

@@ -1,0 +1,89 @@
+﻿<Page
+    x:Class="Bing_search.Views.GamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Bing_search.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Pivot x:Name="pivot" x:Load="True">
+            <PivotItem Header="Puzzles and games" Background="#0C8484">
+                <StackPanel Orientation="Vertical">
+                    <AppBarButton Click="twozerofoureightButton_Click"  Foreground="Black" Label="2048" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/2048.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="chessButton_Click" Foreground="Black"  Label="Chess" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/chess.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="crosswordButton_Click" Foreground="Black" Label="Crossword" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/crossword.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="jigsawButton_Click"  Foreground="Black" Label="Jigsaw" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/jigsaw.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="matchingCards_Click"  Foreground="Black" Label="Matching cards" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/mathcing cards.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="sudoku_Click"  Foreground="Black" Label="Sudoku" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/th.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="slidingTiles_Click"  Foreground="Black"  Label="Sliding tiles" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/untitled.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="Trivia and quizzes" Background="#0C8484">
+                <StackPanel>
+                    <AppBarButton Click="nqButton_Click" Foreground="Black"  Label="News quiz" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/news quiz.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="pioButton_Click" Foreground="Black" Label="Put in order" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/putin order.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="SurpriseButton_Click"  Foreground="Black" Label="Random quiz" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/Surprise.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="celebquiz_Click"  Foreground="Black" Label="Celebrity quiz" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/celebquiz.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="geo_Click"  Foreground="Black" Label="Geography quiz" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/geography quiz.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Click="HomePageQuiz_Click"  Foreground="Black"  Label="Home quiz" Margin="10,10,10,10">
+                        <AppBarButton.Icon>
+                            <BitmapIcon UriSource="ms-appx:///Images/HomePage quiz.png"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                </StackPanel></PivotItem>
+        </Pivot>
+        <AppBarButton Canvas.ZIndex="20" Background="Black" Click="GameView_NavigationStart" Label="Home" Icon="XboxOneConsole" x:Name="HomeView" x:Load="False"></AppBarButton>
+        <WebView Canvas.ZIndex="10" x:Load="False" x:Name="GameView" NewWindowRequested="OnNewWindowRequested"/>
+    </Grid>
+</Page>
